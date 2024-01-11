@@ -26,5 +26,57 @@ public class Libro {
         return titulo;
     }
 
-    //Ahora estoy haciendo aun la clase Libro voy por los setters
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+    public void setN_ejemplares(int n_ejemplares) {
+        this.n_ejemplares = n_ejemplares;
+    }
+    public void setN_ejemplares_prestados(int n_ejemplares_prestados) {
+        this.n_ejemplares_prestados = n_ejemplares_prestados;
+    }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    //Metodos
+    public boolean prestamo(){
+        if (n_ejemplares-n_ejemplares_prestados == 0){
+            return false;
+        }
+        ++n_ejemplares_prestados;
+        return true;
+    }
+
+    public boolean devolucion(){
+        if (n_ejemplares_prestados==0){
+            return false;
+        }
+        --n_ejemplares_prestados;
+        return true;
+    }
+
+    //Override
+    @Override
+    public String toString(){
+        return "\n-------------------" +
+                "\nTitulo del libro: " + titulo +
+                "\nAutor del libro: " + autor +
+                "\nEjemplares: " + n_ejemplares +
+                "\nLibros prestados: " + n_ejemplares_prestados;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj==null){
+            return false;
+        }
+        if (!(obj instanceof Libro)){
+            return false;
+        }
+
+        Libro libro = (Libro) obj;
+        return titulo.equals(libro.getTitulo());
+
+    }
 }

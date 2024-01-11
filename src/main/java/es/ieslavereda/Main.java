@@ -1,19 +1,20 @@
 package es.ieslavereda;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Biblioteca biblioteca1 = new Biblioteca("La pobla");
+        Biblioteca biblioteca2 = new Biblioteca("La Eliana");
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        for (int i = 0; i < 4; i++) {
+            biblioteca1.addLibro(new Libro("Ejemplo" + i, "Autor" + i, 33));
         }
+        System.out.println(biblioteca2.removeLibro(new Libro("Don Quijote de la Mancha", "Miguel de Cervantes Saavedra", 3)));
+        biblioteca2.removeLibro(new Libro("El amor en los tiempos del cólera", "Gabriel García Márquez", 3));
+        biblioteca2.removeLibro(new Libro("Desolación", "Gabriela Mistral", 3));
+        biblioteca2.removeLibro(new Libro("dfgdfgdfgfgfg", "Ggggggggg", 3));
+
+        biblioteca1.prestamo(new Libro("Don Quijote de la Mancha", "Miguel de Cervantes Saavedra", 3));
+        biblioteca2.prestamo(new Libro("Don Quijote de la Mancha", "Miguel de Cervantes Saavedra", 3));
+        System.out.println(biblioteca1);
+        System.out.println(biblioteca2);
     }
 }
